@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Employee Pay Calculator</title>
+<script>
+  function calculatePay() {
+    // Prompt user for input
+    var name = prompt("Enter employee name:");
+    var hoursWorked = parseFloat(prompt("Enter hours worked:"));
+    var ratePerHour = parseFloat(prompt("Enter rate per hour:"));
+
+    // Calculate basic pay
+    var basicPay = hoursWorked * ratePerHour;
+
+    // Calculate tax based on basic pay
+    var tax;
+    if (basicPay > 50000) {
+      tax = 0.2 * basicPay;
+    } else if (basicPay >= 20000 && basicPay <= 50000) {
+      tax = 0.1 * basicPay;
+    } else {
+      tax = 0;
+    }
+
+    // Calculate net pay
+    var netPay = basicPay - tax;
+
+    // Display results
+    alert("Employee Name: " + name + "\nBasic Pay: $" + basicPay.toFixed(2) + "\nTax: $" + tax.toFixed(2) + "\nNet Pay: $" + netPay.toFixed(2));
+  }
+</script>
+</head>
+<body>
+
+<button onclick="calculatePay()">Calculate Pay</button>
+
+</body>
+</html>
